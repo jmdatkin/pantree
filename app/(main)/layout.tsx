@@ -4,7 +4,9 @@
 // Learn more: https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
-import "./globals.css";
+import "../globals.css";
+import Navbar from "@/components/navbar";
+import MobileNavbar from "@/components/mobile-navbar";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { CameraIcon, Package2Icon, SettingsIcon } from "lucide-react";
 
@@ -46,22 +48,14 @@ const links: NavbarLink[] = [
 
 export default function Layout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          "antialiased w-screen h-screen overflow-hidden",
-          fontHeading.variable,
-          fontBody.variable
-        )}
-      >
-        {children}
-        <ProgressBar
-          height="4px"
-          color="#3F3F46"
-          options={{ showSpinner: false }}
-          shallowRouting
-        ></ProgressBar>
-      </body>
-    </html>
+    <div className="w-full h-full flex flex-col-reverse md:flex-row">
+      <aside className="block md:hidden z-[900]">
+        <MobileNavbar links={links} />
+      </aside>
+      <aside className="hidden md:block z-[900]">
+        <Navbar links={links} />
+      </aside>
+      <main className="w-full h-full">{children}</main>
+    </div>
   );
 }

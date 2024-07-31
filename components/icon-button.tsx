@@ -16,7 +16,7 @@ const IconButton = (props: IconButtonProps) => {
           props.className
         } ${
           props.active
-            ? "before:-bottom-1 before:md:bottom-0 before:md:-left-1 before:md:h-full before:md:w-1 before:absolute before:h-1 before:w-full before:bg-accent-foreground"
+            ? "before:-bottom-0 before:md:bottom-0 before:md:-left-1 before:md:h-full before:md:w-1 before:absolute before:h-1 before:w-full before:bg-accent-foreground"
             : ""
         }`
       )}
