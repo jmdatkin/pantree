@@ -91,7 +91,7 @@ const Camera = () => {
           )}
           <button
             className="justify-self-end w-16 h-16 flex justify-center items-center bg-accent active:bg-zinc-200 active:outline-zinc-200 rounded-full"
-            onClick={() => setImage(cameraRef.current.switchCamera())}
+            onClick={() => cameraRef.current.switchCamera()}
           >
             <SwitchCameraIcon className="text-primary w-12 h-12" />
           </button>

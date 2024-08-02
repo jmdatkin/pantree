@@ -64,7 +64,7 @@ export default function Layout({ children }) {
           options={{ showSpinner: false }}
           shallowRouting
         ></ProgressBar>
-        <Toaster />
+        <Toaster position="top-center" />
       </body>
     </html>
   );

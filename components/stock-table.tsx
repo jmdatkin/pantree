@@ -2,7 +2,6 @@
 
 import useUser from "@/app/_hooks/use-user";
 import { DataTable } from "./ui/data-table";
-import { Table } from "./ui/table";
 import { ColumnDef } from "@tanstack/react-table";
 import { useEffect, useState } from "react";
 import { getItems } from "@/app/firebase";

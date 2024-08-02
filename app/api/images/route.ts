@@ -10,5 +10,15 @@ export async function POST(request: Request) {
 
   const output = gptResponse.choices[0].message.content;
 
-  return Response.json({ data: output });
+  const res = Response.json({ data: output });
+
+  res.headers.set("Access-Control-Allow-Origin", "*");
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.headers.set(
+    "Access-Control-Allow-Methods",
+    "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+  );
+
+  return res;
 }

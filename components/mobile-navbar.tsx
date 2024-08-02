@@ -9,9 +9,13 @@ const MobileNavbar = (props: { links: NavbarLink[] }) => {
 
   return (
     <nav className="w-full h-20 bg-background border-t border-zinc-300 flex flex-row items-center justify-center gap-8">
-      {props.links.map((link) => {
+      {props.links.map((link, index) => {
         return (
-          <IconButton active={link.href.includes(pathname)} href={link.href}>
+          <IconButton
+            key={index}
+            active={link.href.includes(pathname)}
+            href={link.href}
+          >
             {link.icon}
           </IconButton>
         );

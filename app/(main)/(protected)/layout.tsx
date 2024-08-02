@@ -8,9 +8,11 @@ export default function Layout({ children }: { children: ReactNode }) {
   const user = useUser();
   const router = useRouter();
 
-  const localStorageUser = localStorage.getItem("pantree.user");
+  if (typeof window !== "undefined") {
+    const localStorageUser = localStorage.getItem("pantree.user");
 
-  if (!user && !localStorageUser) return router.push("/login");
+    if (!user && !localStorageUser) return router.push("/login");
+  }
   if (!user)
     return (
       <div className="w-full h-full flex flex-col items-center justify-center">
