@@ -9,6 +9,8 @@ import Navbar from "@/components/navbar";
 import MobileNavbar from "@/components/mobile-navbar";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { CameraIcon, Package2Icon, SettingsIcon } from "lucide-react";
+import { LuPackageOpen } from "react-icons/lu";
+import { FaCamera } from "react-icons/fa";
 
 const fontHeading = Inter({
   subsets: ["latin"],
@@ -32,12 +34,12 @@ const links: NavbarLink[] = [
   {
     name: "Stock",
     href: "/stock",
-    icon: <Package2Icon className="h-7 w-7"></Package2Icon>,
+    icon: <LuPackageOpen className="h-7 w-7"></LuPackageOpen>,
   },
   {
     name: "Capture",
     href: "/capture",
-    icon: <CameraIcon className="h-7 w-7"></CameraIcon>,
+    icon: <FaCamera className="h-7 w-7"></FaCamera>,
   },
   {
     name: "Settings",
@@ -48,8 +50,8 @@ const links: NavbarLink[] = [
 
 export default function Layout({ children }) {
   return (
-    <div className="w-full h-full flex flex-col-reverse md:flex-row">
-      <aside className="block md:hidden z-[900]">
+    <div className="w-full h-dvh flex flex-col-reverse md:flex-row">
+      <aside className="block md:hidden z-[900] bottom-0">
         <MobileNavbar links={links} />
       </aside>
       <aside className="hidden md:block z-[900]">

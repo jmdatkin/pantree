@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { CameraIcon, Package2Icon, SettingsIcon } from "lucide-react";
+import AuthProvider from "./_context/auth-context";
 
 const fontHeading = Inter({
   subsets: ["latin"],
@@ -51,10 +52,11 @@ export default function Layout({ children }) {
         className={cn(
           "antialiased w-screen h-screen overflow-hidden",
           fontHeading.variable,
-          fontBody.variable
+          fontBody.variable,
+          fontBody.className
         )}
       >
-        {children}
+        <AuthProvider>{children}</AuthProvider>
         <ProgressBar
           height="4px"
           color="#3F3F46"

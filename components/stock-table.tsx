@@ -1,6 +1,11 @@
+"use client";
+
+import useUser from "@/app/_hooks/use-user";
 import { DataTable } from "./ui/data-table";
 import { Table } from "./ui/table";
 import { ColumnDef } from "@tanstack/react-table";
+import { useEffect, useState } from "react";
+import { getItems } from "@/app/firebase";
 
 type Stock = {
   item: string;
@@ -23,16 +28,28 @@ const SAMPLE_ITEMS: Stock[] = [
 ];
 export const columns: ColumnDef<Stock>[] = [
   {
-    accessorKey: "item",
-    header: "Item",
+    accessorKey: "itemName",
+    header: "Item Name",
+    filterFn: "includesString",
   },
   {
     accessorKey: "quantity",
     header: "Quantity",
+    filterFn: "auto",
   },
 ];
 
 const StockTable = () => {
-  return <DataTable columns={columns} data={SAMPLE_ITEMS}></DataTable>;
+  const user = useUser();
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    if (user === null) return;
+    getItems(user).then((data) => setItems(data));
+  }, [user]);
+
+  console.log(items);
+
+  return <DataTable columns={columns} data={items}></DataTable>;
 };
 export default StockTable;
