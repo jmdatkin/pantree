@@ -59,7 +59,7 @@ const AddPantryItemForm = () => {
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <CardHeader>
               <CardTitle className="text-2xl font-bold">
-                Add Pantry Item
+                Manually Add Pantry Item
               </CardTitle>
               <CardDescription>Add a new item to your pantry</CardDescription>
             </CardHeader>

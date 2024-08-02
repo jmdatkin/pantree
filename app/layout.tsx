@@ -8,6 +8,7 @@ import "./globals.css";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { CameraIcon, Package2Icon, SettingsIcon } from "lucide-react";
 import AuthProvider from "./_context/auth-context";
+import { Toaster } from "@/components/ui/sonner";
 
 const fontHeading = Inter({
   subsets: ["latin"],
@@ -63,6 +64,7 @@ export default function Layout({ children }) {
           options={{ showSpinner: false }}
           shallowRouting
         ></ProgressBar>
+        <Toaster />
       </body>
     </html>
   );
